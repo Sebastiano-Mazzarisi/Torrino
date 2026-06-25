@@ -416,18 +416,19 @@ figure img {
 
 .ai-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 9px;
+  left: 9px;
   z-index: 2;
-  padding: 6px 9px;
+  padding: 4px 7px;
   border-radius: 999px;
-  color: #fff;
-  background: rgba(35, 48, 38, .84);
-  font-size: 11px;
+  color: rgba(34, 48, 38, .82);
+  background: rgba(255, 255, 255, .78);
+  font-size: 9px;
   font-weight: 800;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0;
+  box-shadow: 0 2px 8px rgba(34, 48, 38, .12);
 }
 
 figure.feature img {
@@ -465,7 +466,7 @@ figcaption strong {
   overflow: hidden;
 }
 
-.timeline span {
+.timeline article > span:not(.ai-badge) {
   display: grid;
   place-items: center;
   width: 34px;
@@ -499,14 +500,14 @@ figcaption strong {
   object-position: center 58%;
 }
 
-.timeline article span,
+.timeline article > span:not(.ai-badge),
 .timeline article h3,
 .timeline article p {
   margin-left: 22px;
   margin-right: 22px;
 }
 
-.timeline article span {
+.timeline article > span:not(.ai-badge) {
   margin-top: 22px;
 }
 
