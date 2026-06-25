@@ -39,6 +39,7 @@
         <a href="#dintorni">Dintorni</a>
         <a href="#posizione">Posizione</a>
         <a href="#contatti">Contatti</a>
+        <span class="visit-counter" id="visit-counter" aria-live="polite" hidden></span>
       </nav>
     </header>
 
@@ -80,10 +81,12 @@
         <div class="section-title compact">
           <p class="kicker">Foto commentate</p>
           <h2>Gli spazi, letti uno alla volta</h2>
+          <p class="ai-disclosure">Le immagini di Castiglione presenti in questa sezione sono state ritoccate ed elaborate con strumenti di intelligenza artificiale a scopo illustrativo. Non sostituiscono sopralluogo, rilievi tecnici o documentazione ufficiale.</p>
         </div>
         <div class="photo-story">
           <figure class="feature">
             <img src="assets/img/torrino-esterno.png" alt="Esterno del torrino con piazzale">
+            <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Il torrino in pietra</strong>
               <span>Il fabbricato piu riconoscibile: volume compatto, pietra a vista e relazione diretta con il piazzale esterno.</span>
@@ -91,6 +94,7 @@
           </figure>
           <figure>
             <img src="assets/img/accesso-uliveto.png" alt="Accesso alla proprieta con ulivi">
+            <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Accesso e uliveto</strong>
               <span>La strada interna accompagna verso il fondo e rende chiaro il carattere agricolo della proprieta.</span>
@@ -98,6 +102,7 @@
           </figure>
           <figure>
             <img src="assets/img/interno-torrino.png" alt="Interno del torrino con scala e soppalco">
+            <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Interno del torrino</strong>
               <span>Uno spazio semplice ma identitario, con scala e soppalco: utile per capire proporzioni e possibilita d'uso.</span>
@@ -105,6 +110,7 @@
           </figure>
           <figure>
             <img src="assets/img/rimessa-esterno.png" alt="Esterno della rimessa">
+            <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Rimessa e servizio</strong>
               <span>Un corpo separato che completa la parte funzionale del fondo, adatto a deposito e supporto agricolo.</span>
@@ -112,6 +118,7 @@
           </figure>
           <figure>
             <img src="assets/img/rimessa-interno-1.png" alt="Interno della rimessa">
+            <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Spazio interno</strong>
               <span>Ambiente asciutto e leggibile, da valutare sul posto insieme a documenti e verifiche tecniche.</span>
@@ -119,6 +126,7 @@
           </figure>
           <figure>
             <img src="assets/img/rimessa-interno-2.png" alt="Rimessa con apertura verso l'esterno">
+            <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Relazione con l'esterno</strong>
               <span>La rimessa dialoga con lo spazio aperto e con gli accessi, dettaglio importante per l'uso quotidiano del terreno.</span>
@@ -245,7 +253,7 @@
         <div>
           <p class="kicker">Contatti</p>
           <h2>Informazioni, documenti e sopralluogo</h2>
-          <p>Per valutare il bene sono disponibili foto reali, documenti raccolti e sopralluogo con persone concretamente interessate.</p>
+          <p>Per valutare il bene sono disponibili immagini ritoccate con AI, documenti raccolti e sopralluogo con persone concretamente interessate.</p>
         </div>
         <div class="contact-box">
           <a class="button primary full" href="tel:+393395963910">+39 339 596 3910</a>
@@ -269,6 +277,34 @@
           video.load();
         });
       });
+
+      (() => {
+        const counter = document.getElementById("visit-counter");
+        if (!counter) return;
+
+        const params = new URLSearchParams(window.location.search);
+        const showCounter = params.get("visite") === "1";
+        const isLocal = ["", "localhost", "127.0.0.1"].includes(window.location.hostname);
+        const baseUrl = "https://api.counterapi.dev/v1/torrino-castiglione/visits";
+
+        const renderCount = (count) => {
+          counter.textContent = `Visite: ${count}`;
+          counter.hidden = false;
+          counter.classList.add("is-visible");
+        };
+
+        if (showCounter) {
+          fetch(`${baseUrl}/`)
+            .then((response) => response.ok ? response.json() : Promise.reject())
+            .then((data) => renderCount(data.count ?? 0))
+            .catch(() => renderCount(0));
+          return;
+        }
+
+        if (!isLocal) {
+          fetch(`${baseUrl}/up`).catch(() => {});
+        }
+      })();
     </script>
   </body>
 </html>
