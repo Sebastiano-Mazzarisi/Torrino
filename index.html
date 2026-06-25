@@ -33,10 +33,11 @@
         <span>Castiglione</span>
       </a>
       <nav aria-label="Navigazione principale">
-        <a href="#posizione">Posizione</a>
-        <a href="#dintorni">Dintorni</a>
         <a href="#foto">Foto</a>
         <a href="#storia">Storia</a>
+        <a href="#sguardo">Video</a>
+        <a href="#dintorni">Dintorni</a>
+        <a href="#posizione">Posizione</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </header>
@@ -50,7 +51,7 @@
           <h1>Torrino, uliveto e memoria rurale pugliese</h1>
           <p>Un percorso breve per guardare la posizione, leggere gli spazi attraverso le foto e capire il contesto storico dei torrini agricoli della Puglia.</p>
           <div class="actions">
-            <a class="button primary" href="#posizione">Vedi posizione</a>
+            <a class="button primary" href="#foto">Guarda gli spazi</a>
             <a class="button light" href="#contatti">Contatti</a>
           </div>
         </div>
@@ -72,59 +73,6 @@
         <div>
           <strong>Documenti</strong>
           <span>Fascicolo storico e catastale disponibile</span>
-        </div>
-      </section>
-
-      <section id="posizione" class="section map-section">
-        <div class="section-title">
-          <p class="kicker">Posizione</p>
-          <h2>Nel territorio rurale di Conversano</h2>
-          <p>La proprieta si trova in Contrada Castiglione, in un contesto agricolo di ulivi e strade poderali. La mappa permette di leggere accessi, distanze e rapporto con Conversano prima del sopralluogo; il pulsante apre la posizione precisa.</p>
-        </div>
-        <div class="map-layout">
-          <div class="map-card">
-            <iframe
-              title="Mappa di Contrada Castiglione, Conversano"
-              src="https://www.google.com/maps?q=40.917361,17.138664&z=18&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <aside class="location-panel">
-            <h3>Come guardarla</h3>
-            <p>Apri la mappa in vista satellitare per seguire l'accesso, riconoscere il tessuto agricolo e inquadrare la proprieta rispetto alla zona di Castiglione.</p>
-            <p class="coords">Coordinate: 40.917361, 17.138664</p>
-            <a class="button primary full" href="https://www.google.com/maps/search/?api=1&query=40.917361%2C17.138664" target="_blank" rel="noopener">Apri posizione precisa</a>
-          </aside>
-        </div>
-      </section>
-
-      <section id="dintorni" class="section nearby-section">
-        <div class="section-title">
-          <p class="kicker">Dintorni</p>
-          <h2>Una base rurale vicina alle mete piu riconoscibili della Puglia</h2>
-          <p>Castiglione ha il vantaggio di stare in campagna senza essere isolata: dal torrino si raggiungono facilmente il mare, i borghi storici, le grotte e alcune delle mete piu forti del turismo pugliese e lucano.</p>
-        </div>
-        <div class="nearby-grid">
-          <article>
-            <span>Mare</span>
-            <h3>Polignano a Mare e Monopoli</h3>
-            <p>La costa adriatica e vicina: scogliere, calette, centri storici sul mare, ristoranti e passeggiate serali diventano una naturale estensione del soggiorno.</p>
-          </article>
-          <article>
-            <span>Trulli</span>
-            <h3>Alberobello e Valle d'Itria</h3>
-            <p>Il paesaggio dei trulli, delle strade bianche e dei borghi interni e facilmente raggiungibile, con Alberobello come riferimento piu noto.</p>
-          </article>
-          <article>
-            <span>Grotte</span>
-            <h3>Castellana Grotte</h3>
-            <p>Le grotte di Castellana aggiungono una meta naturale importante, utile sia per chi visita la zona sia per chi cerca esperienze diverse dal solo mare.</p>
-          </article>
-          <article>
-            <span>Patrimonio</span>
-            <h3>Matera e i Sassi</h3>
-            <p>Matera amplia il raggio del viaggio: i Sassi, la storia rupestre e il paesaggio murgiano rendono il torrino una possibile base per itinerari piu ampi.</p>
-          </article>
         </div>
       </section>
 
@@ -216,15 +164,81 @@
         </div>
       </section>
 
-      <section class="section video-section">
+      <section id="sguardo" class="section video-section">
         <div class="section-title compact">
           <p class="kicker">Video</p>
           <h2>Uno sguardo continuo sulla proprieta</h2>
         </div>
-        <video controls preload="metadata" poster="assets/img/hero-castiglione.png">
+        <video id="property-video" controls preload="metadata" poster="assets/img/hero-castiglione.png">
           <source src="assets/video/castiglione-web.mp4" type="video/mp4">
           Il tuo browser non supporta il video.
         </video>
+        <button class="button outline video-reset" type="button" data-video-reset="property-video">Ferma e torna all'inizio</button>
+      </section>
+
+      <section id="dintorni" class="section nearby-section">
+        <div class="section-title">
+          <p class="kicker">Dintorni</p>
+          <h2>Una base rurale vicina alle mete piu riconoscibili della Puglia</h2>
+          <p>Castiglione ha il vantaggio di stare in campagna senza essere isolata: dal torrino si raggiungono facilmente il mare, i borghi storici, le grotte e alcune delle mete piu forti del turismo pugliese e lucano.</p>
+        </div>
+        <div class="nearby-grid">
+          <article>
+            <img src="assets/img/dintorni-polignano.jpg" alt="Lama Monachile a Polignano a Mare" loading="lazy">
+            <div class="nearby-card-body">
+              <span>Mare</span>
+              <h3>Polignano a Mare e Monopoli</h3>
+              <p>La costa adriatica e vicina: scogliere, calette, centri storici sul mare, ristoranti e passeggiate serali diventano una naturale estensione del soggiorno.</p>
+            </div>
+          </article>
+          <article>
+            <img src="assets/img/dintorni-alberobello.jpg" alt="I trulli di Alberobello nella Valle d'Itria" loading="lazy">
+            <div class="nearby-card-body">
+              <span>Trulli</span>
+              <h3>Alberobello e Valle d'Itria</h3>
+              <p>Il paesaggio dei trulli, delle strade bianche e dei borghi interni e facilmente raggiungibile, con Alberobello come riferimento piu noto.</p>
+            </div>
+          </article>
+          <article>
+            <img src="assets/img/dintorni-castellana.jpg" alt="La grande cavita delle Grotte di Castellana" loading="lazy">
+            <div class="nearby-card-body">
+              <span>Grotte</span>
+              <h3>Castellana Grotte</h3>
+              <p>Le grotte di Castellana aggiungono una meta naturale importante, utile sia per chi visita la zona sia per chi cerca esperienze diverse dal solo mare.</p>
+            </div>
+          </article>
+          <article>
+            <img src="assets/img/dintorni-matera.jpg" alt="Veduta dei Sassi di Matera" loading="lazy">
+            <div class="nearby-card-body">
+              <span>Patrimonio</span>
+              <h3>Matera e i Sassi</h3>
+              <p>Matera amplia il raggio del viaggio: i Sassi, la storia rupestre e il paesaggio murgiano rendono il torrino una possibile base per itinerari piu ampi.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="posizione" class="section map-section">
+        <div class="section-title">
+          <p class="kicker">Posizione</p>
+          <h2>Nel territorio rurale di Conversano</h2>
+          <p>La proprieta si trova in Contrada Castiglione, in un contesto agricolo di ulivi e strade poderali. La mappa permette di leggere accessi, distanze e rapporto con Conversano prima del sopralluogo; il pulsante apre la posizione precisa.</p>
+        </div>
+        <div class="map-layout">
+          <div class="map-card">
+            <iframe
+              title="Mappa di Contrada Castiglione, Conversano"
+              src="https://www.google.com/maps?q=40.917361,17.138664&z=18&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <aside class="location-panel">
+            <h3>Come guardarla</h3>
+            <p>Apri la mappa in vista satellitare per seguire l'accesso, riconoscere il tessuto agricolo e inquadrare la proprieta rispetto alla zona di Castiglione.</p>
+            <p class="coords">Coordinate: 40.917361, 17.138664</p>
+            <a class="button primary full" href="https://www.google.com/maps/search/?api=1&query=40.917361%2C17.138664" target="_blank" rel="noopener">Apri posizione precisa</a>
+          </aside>
+        </div>
       </section>
 
       <section id="contatti" class="contact">
@@ -244,5 +258,17 @@
       <span>Castiglione Conversano</span>
       <span>Contrada Castiglione, 70014 Conversano BA</span>
     </footer>
+
+    <script>
+      document.querySelectorAll("[data-video-reset]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const video = document.getElementById(button.dataset.videoReset);
+          if (!video) return;
+          video.pause();
+          video.currentTime = 0;
+          video.load();
+        });
+      });
+    </script>
   </body>
 </html>
