@@ -285,7 +285,9 @@
         const params = new URLSearchParams(window.location.search);
         const showCounter = params.get("visite") === "1";
         const isLocal = ["", "localhost", "127.0.0.1"].includes(window.location.hostname);
-        const baseUrl = "https://api.counterapi.dev/v1/torrino-castiglione/visits";
+        const baseUrl = "https://api.counterapi.dev/v1/torrino-castiglione";
+        const visitsUrl = `${baseUrl}/visits`;
+        const baselineUrl = `${baseUrl}/visits-baseline`;
 
         const renderCount = (count) => {
           counter.textContent = `Visite: ${count}`;
@@ -293,16 +295,49 @@
           counter.classList.add("is-visible");
         };
 
-        if (showCounter) {
-          fetch(`${baseUrl}/`)
+        const getCount = (url) => (
+          fetch(`${url}/`)
             .then((response) => response.ok ? response.json() : Promise.reject())
-            .then((data) => renderCount(data.count ?? 0))
-            .catch(() => renderCount(0));
+            .then((data) => Number(data.count) || 0)
+            .catch(() => 0)
+        );
+
+        const renderVisibleCounter = () => {
+          Promise.all([getCount(visitsUrl), getCount(baselineUrl)])
+            .then(([visits, baseline]) => renderCount(Math.max(0, visits - baseline)));
+        };
+
+        if (showCounter) {
+          counter.setAttribute("role", "button");
+          counter.setAttribute("tabindex", "0");
+          counter.setAttribute("title", "Clicca per azzerare il contatore visualizzato");
+          renderVisibleCounter();
+
+          const resetCounter = () => {
+            if (!window.confirm("Vuoi azzerare il contatore visite visualizzato?")) return;
+            getCount(visitsUrl)
+              .then((visits) => {
+                if (visits <= 0) return { count: 0 };
+                return fetch(`${baselineUrl}/set?count=${visits}`)
+                  .then((response) => response.ok ? response.json() : Promise.reject());
+              })
+              .then(() => renderCount(0))
+              .catch(() => {
+                counter.textContent = "Visite: errore";
+              });
+          };
+
+          counter.addEventListener("click", resetCounter);
+          counter.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            resetCounter();
+          });
           return;
         }
 
         if (!isLocal) {
-          fetch(`${baseUrl}/up`).catch(() => {});
+          fetch(`${visitsUrl}/up`).catch(() => {});
         }
       })();
     </script>

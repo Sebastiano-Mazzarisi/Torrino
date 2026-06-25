@@ -99,6 +99,11 @@ nav {
 
 .visit-counter.is-visible {
   display: inline-flex;
+  cursor: pointer;
+}
+
+.visit-counter.is-visible:hover {
+  color: var(--clay);
 }
 
 .hero {
