@@ -248,11 +248,18 @@ h3 {
 }
 
 .facts strong {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
   color: var(--olive-dark);
   font-size: 13px;
   text-transform: uppercase;
+}
+
+.fact-icon {
+  font-size: 20px;
+  line-height: 1;
 }
 
 .facts span,
@@ -429,6 +436,12 @@ figure img {
   text-transform: uppercase;
   letter-spacing: 0;
   box-shadow: 0 2px 8px rgba(34, 48, 38, .12);
+}
+
+.hero-ai-badge {
+  top: 18px;
+  left: clamp(18px, 4vw, 54px);
+  z-index: 2;
 }
 
 figure.feature img {
@@ -646,10 +659,37 @@ footer {
 }
 
 @media (max-width: 560px) {
+  .hero {
+    min-height: 0;
+    background: #172019;
+  }
+
+  .hero img {
+    position: relative;
+    z-index: 0;
+    height: auto;
+    object-fit: contain;
+    object-position: center top;
+  }
+
+  .hero-overlay {
+    display: none;
+  }
+
   .hero-text {
     width: 100%;
-    padding-right: 28px;
-    padding-left: 28px;
+    min-height: 0;
+    padding: 26px 28px 34px;
+  }
+
+  h1 {
+    max-width: 100%;
+    font-size: clamp(34px, 9.4vw, 40px);
+    line-height: 1.04;
+  }
+
+  .hero-text p {
+    font-size: 16px;
   }
 
   .actions {
