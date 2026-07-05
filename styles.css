@@ -68,12 +68,16 @@ nav a,
 }
 
 .brand.is-effettocasa {
-  min-width: 220px;
+  min-width: 330px;
+  padding: 6px 10px;
+  border: 1px solid rgba(103, 117, 104, .34);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .74);
 }
 
 .brand-logo {
-  width: min(260px, 42vw);
-  height: 44px;
+  width: min(360px, 52vw);
+  height: 58px;
   object-fit: contain;
 }
 
