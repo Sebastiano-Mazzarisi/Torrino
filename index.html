@@ -184,7 +184,6 @@
           <h2>Uno sguardo continuo sulla proprietà</h2>
         </div>
         <div class="video-frame">
-          <span class="ai-badge video-ai-badge" id="video-ai-badge">Ritocco AI</span>
           <iframe
             id="property-video"
             src="https://www.youtube.com/embed/FFnA_vWjK7k"
@@ -247,7 +246,7 @@
           <div class="map-card">
             <iframe
               title="Mappa di Contrada Castiglione, Conversano"
-              src="https://www.google.com/maps?q=40.917361,17.138664&z=18&output=embed"
+              src="https://www.google.com/maps?q=40.917361,17.138664&z=11&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
@@ -301,7 +300,9 @@
         title.textContent = "Contatti: Effettocasa";
         text.textContent = "Per informazioni, documenti e sopralluoghi contattare Effettocasa Immobiliare.";
         box.innerHTML = `
-          <img class="contact-logo" src="assets/img/logo-ec.png" alt="Effettocasa Property Solutions">
+          <a class="contact-logo-link" href="https://effettocasaimmobiliare.it/it/" target="_blank" rel="noopener" aria-label="Apri il sito Effettocasa Immobiliare">
+            <img class="contact-logo" src="assets/img/logo-ec.png" alt="Effettocasa Property Solutions">
+          </a>
           <a class="button primary full" href="tel:+393939933398">+39 393-99.33.398</a>
           <a class="button primary full" href="tel:+390804955330">+39 080-49.55.330</a>
           <a class="button outline full" href="mailto:info@effettocasaimmobiliare.it">info@effettocasaimmobiliare.it</a>

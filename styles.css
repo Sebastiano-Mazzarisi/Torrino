@@ -252,8 +252,8 @@ h3 {
 }
 
 .facts div {
-  min-height: 112px;
-  padding: 24px clamp(18px, 3vw, 38px);
+  min-height: 224px;
+  padding: 48px clamp(36px, 6vw, 76px);
   border-right: 1px solid var(--line);
 }
 
@@ -264,16 +264,21 @@ h3 {
 .facts strong {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 16px;
+  margin-bottom: 16px;
   color: var(--olive-dark);
-  font-size: 13px;
+  font-size: 26px;
   text-transform: uppercase;
 }
 
 .fact-icon {
-  font-size: 20px;
+  font-size: 40px;
   line-height: 1;
+}
+
+.facts div > span {
+  font-size: 32px;
+  line-height: 1.2;
 }
 
 .facts span,
@@ -576,10 +581,6 @@ figcaption strong {
   border: 0;
 }
 
-.video-ai-badge {
-  z-index: 3;
-}
-
 .video-reset {
   margin-top: 16px;
 }
@@ -604,9 +605,14 @@ figcaption strong {
   gap: 12px;
 }
 
+.contact-logo-link {
+  display: block;
+  margin-bottom: 6px;
+  border-radius: 8px;
+}
+
 .contact-logo {
   width: min(100%, 350px);
-  margin-bottom: 6px;
   padding: 10px 12px;
   border-radius: 8px;
   background: #fff;
