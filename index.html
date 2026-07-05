@@ -262,10 +262,10 @@
       <section id="contatti" class="contact">
         <div>
           <p class="kicker">Contatti</p>
-          <h2>Informazioni, documenti e sopralluogo</h2>
-          <p>Per valutare il bene sono disponibili immagini ritoccate con AI, documenti raccolti e sopralluogo con persone concretamente interessate.</p>
+          <h2 id="contact-title">Informazioni, documenti e sopralluogo</h2>
+          <p id="contact-text">Per valutare il bene sono disponibili immagini ritoccate con AI, documenti raccolti e sopralluogo con persone concretamente interessate.</p>
         </div>
-        <div class="contact-box">
+        <div class="contact-box" id="contact-box">
           <a class="button primary full" href="tel:+393395963910">+39 339 596 3910</a>
           <a class="button outline full" href="mailto:m61.mazzarisi@gmail.com">m61.mazzarisi@gmail.com</a>
         </div>
@@ -278,6 +278,28 @@
     </footer>
 
     <script>
+      (() => {
+        const params = new URLSearchParams(window.location.search);
+        const visitsMode = (params.get("visite") || "").trim();
+        const useEffettocasa = visitsMode === "8105" || visitsMode === "6739";
+
+        if (!useEffettocasa) return;
+
+        const title = document.getElementById("contact-title");
+        const text = document.getElementById("contact-text");
+        const box = document.getElementById("contact-box");
+        if (!title || !text || !box) return;
+
+        title.textContent = "Contatti: Effettocasa";
+        text.textContent = "Per informazioni, documenti e sopralluoghi contattare Effettocasa Immobiliare.";
+        box.innerHTML = `
+          <img class="contact-logo" src="assets/img/logo-ec.png" alt="Effettocasa Property Solutions">
+          <a class="button primary full" href="tel:+393939933398">+39 393-99.33.398</a>
+          <a class="button primary full" href="tel:+390804955330">+39 080-49.55.330</a>
+          <a class="button outline full" href="mailto:info@effettocasaimmobiliare.it">info@effettocasaimmobiliare.it</a>
+        `;
+      })();
+
       document.querySelectorAll("[data-video-reset]").forEach((button) => {
         button.addEventListener("click", () => {
           const video = document.getElementById(button.dataset.videoReset);
@@ -291,7 +313,8 @@
         if (!counter) return;
 
         const params = new URLSearchParams(window.location.search);
-        const showCounter = params.get("visite") === "1";
+        const visitsMode = (params.get("visite") || "").trim();
+        const showCounter = visitsMode === "5930" || visitsMode === "8105";
         const isLocal = ["", "localhost", "127.0.0.1"].includes(window.location.hostname);
         const baseUrl = "https://api.counterapi.dev/v1/torrino-castiglione";
         const visitsUrl = `${baseUrl}/visits`;

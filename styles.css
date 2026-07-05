@@ -387,6 +387,10 @@ footer {
   margin-left: auto;
 }
 
+.photo-section .section-title.compact {
+  max-width: 1180px;
+}
+
 .ai-disclosure {
   max-width: 760px;
   padding: 14px 16px;
@@ -584,6 +588,14 @@ figcaption strong {
 .contact-box {
   display: grid;
   gap: 12px;
+}
+
+.contact-logo {
+  width: min(100%, 350px);
+  margin-bottom: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff;
 }
 
 footer {
