@@ -547,12 +547,15 @@ figcaption strong {
   position: relative;
 }
 
-video {
+.video-frame video,
+.video-frame iframe {
   width: 100%;
+  aspect-ratio: 16 / 9;
   max-height: 720px;
   border-radius: 8px;
   background: #101612;
   box-shadow: var(--shadow);
+  border: 0;
 }
 
 .video-ai-badge {

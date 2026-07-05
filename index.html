@@ -94,11 +94,11 @@
             </figcaption>
           </figure>
           <figure>
-            <img src="assets/img/thumbs/accesso-uliveto.webp" alt="Accesso alla proprieta con ulivi">
+            <img src="assets/img/thumbs/accesso-uliveto.webp" alt="Accesso alla proprietà con ulivi">
             <span class="ai-badge">Ritocco AI</span>
             <figcaption>
               <strong>Accesso e uliveto</strong>
-              <span>La strada interna accompagna verso il fondo e rende chiaro il carattere agricolo della proprieta.</span>
+              <span>La strada interna accompagna verso il fondo e rende chiaro il carattere agricolo della proprietà.</span>
             </figcaption>
           </figure>
           <figure>
@@ -148,7 +148,7 @@
             <span class="ai-badge">Ritocco AI</span>
             <span>1</span>
             <h3>Guardare il fondo</h3>
-            <p>Il torrino e spesso un punto alto o riconoscibile: aiuta a orientarsi nel terreno, controllare accessi e distinguere la proprieta nel paesaggio.</p>
+            <p>Il torrino e spesso un punto alto o riconoscibile: aiuta a orientarsi nel terreno, controllare accessi e distinguere la proprietà nel paesaggio.</p>
           </article>
           <article>
             <img src="assets/img/thumbs/rimessa-esterno.webp" alt="Rimessa agricola accanto agli spazi di servizio">
@@ -180,14 +180,16 @@
       <section id="sguardo" class="section video-section">
         <div class="section-title compact">
           <p class="kicker">Video</p>
-          <h2>Uno sguardo continuo sulla proprieta</h2>
+          <h2>Uno sguardo continuo sulla proprietà</h2>
         </div>
         <div class="video-frame">
           <span class="ai-badge video-ai-badge" id="video-ai-badge">Ritocco AI</span>
-          <video id="property-video" controls preload="metadata" poster="assets/img/thumbs/hero-castiglione.webp">
-            <source src="assets/video/castiglione-web.mp4" type="video/mp4">
-            Il tuo browser non supporta il video.
-          </video>
+          <iframe
+            id="property-video"
+            src="https://www.youtube.com/embed/FFnA_vWjK7k"
+            title="Video Castiglione su YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
         </div>
         <button class="button outline video-reset" type="button" data-video-reset="property-video">Ferma e torna all'inizio</button>
       </section>
@@ -238,7 +240,7 @@
         <div class="section-title">
           <p class="kicker">Posizione</p>
           <h2>Nel territorio rurale di Conversano</h2>
-          <p>La proprieta si trova in Contrada Castiglione, in un contesto agricolo di ulivi e strade poderali. La mappa permette di leggere accessi, distanze e rapporto con Conversano prima del sopralluogo; il pulsante apre la posizione precisa.</p>
+          <p>La proprietà si trova in Contrada Castiglione, in un contesto agricolo di ulivi e strade poderali. La mappa permette di leggere accessi, distanze e rapporto con Conversano prima del sopralluogo; il pulsante apre la posizione precisa.</p>
         </div>
         <div class="map-layout">
           <div class="map-card">
@@ -250,7 +252,7 @@
           </div>
           <aside class="location-panel">
             <h3>Come guardarla</h3>
-            <p>Apri la mappa in vista satellitare per seguire l'accesso, riconoscere il tessuto agricolo e inquadrare la proprieta rispetto alla zona di Castiglione.</p>
+            <p>Apri la mappa in vista satellitare per seguire l'accesso, riconoscere il tessuto agricolo e inquadrare la proprietà rispetto alla zona di Castiglione.</p>
             <p class="coords">Coordinate: 40.917361, 17.138664</p>
             <a class="button primary full" href="https://www.google.com/maps/search/?api=1&query=40.917361%2C17.138664" target="_blank" rel="noopener">Apri posizione precisa</a>
           </aside>
@@ -280,27 +282,9 @@
         button.addEventListener("click", () => {
           const video = document.getElementById(button.dataset.videoReset);
           if (!video) return;
-          video.pause();
-          video.currentTime = 0;
-          video.load();
+          video.src = video.src;
         });
       });
-
-      (() => {
-        const video = document.getElementById("property-video");
-        const badge = document.getElementById("video-ai-badge");
-        if (!video || !badge) return;
-
-        const syncVideoBadge = () => {
-          badge.hidden = !video.paused;
-        };
-
-        video.addEventListener("play", syncVideoBadge);
-        video.addEventListener("pause", syncVideoBadge);
-        video.addEventListener("ended", syncVideoBadge);
-        video.addEventListener("loadedmetadata", syncVideoBadge);
-        syncVideoBadge();
-      })();
 
       (() => {
         const counter = document.getElementById("visit-counter");
