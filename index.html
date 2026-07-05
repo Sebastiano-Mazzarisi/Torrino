@@ -288,8 +288,12 @@
         const title = document.getElementById("contact-title");
         const text = document.getElementById("contact-text");
         const box = document.getElementById("contact-box");
-        if (!title || !text || !box) return;
+        const brand = document.querySelector(".brand");
+        if (!title || !text || !box || !brand) return;
 
+        brand.classList.add("is-effettocasa");
+        brand.setAttribute("aria-label", "Effettocasa Property Solutions");
+        brand.innerHTML = '<img class="brand-logo" src="assets/img/logo-ec.png" alt="Effettocasa Property Solutions">';
         title.textContent = "Contatti: Effettocasa";
         text.textContent = "Per informazioni, documenti e sopralluoghi contattare Effettocasa Immobiliare.";
         box.innerHTML = `
